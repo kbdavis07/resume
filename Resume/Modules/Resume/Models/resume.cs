@@ -8,25 +8,28 @@ using System.Web;
 
 namespace Resume.Models
 {
-    public class resume
-    {
-
-        public class Resume
+  
+        public class ResumeObject
         {
-            public Basics basics { get; set; }
-            public Work[] work { get; set; }
-            public Volunteer[] volunteer { get; set; }
-            public Education[] education { get; set; }
-            public Award[] awards { get; set; }
-            public Publication[] publications { get; set; }
-            public Skill[] skills { get; set; }
-            public Language[] languages { get; set; }
-            public Interest[] interests { get; set; }
-            public Reference[] references { get; set; }
+            [Key]
+            public Guid Id { get; set; }
+            public Basic Basic { get; set; }
+
+            public virtual List<Work> Work { get; set; }
+            public virtual List<Volunteer> Volunteer { get; set; }
+            public virtual List<Education> Education { get; set; }
+            public virtual List<Award> Awards { get; set; }
+            public virtual List<Publication> Publications { get; set; }
+            public virtual List<Skill> Skills { get; set; }
+            public virtual List<Language> Languages { get; set; }
+            public virtual List<Interest> Interests { get; set; }
+            public virtual List<Reference> References { get; set; }
         }
 
-        public class Basics
+        public class Basic
         {
+            [Key]
+            public int Id { get; set; }
 
             [Required]
             public string name { get; set; }
@@ -52,6 +55,8 @@ namespace Resume.Models
 
         public class Location
         {
+            [Key]
+            public int Id { get; set; }
             public string address { get; set; }
             public string postalCode { get; set; }
             public string city { get; set; }
@@ -61,6 +66,8 @@ namespace Resume.Models
 
         public class Profile
         {
+            [Key]
+            public int Id { get; set; }
             public string network { get; set; }
             public string username { get; set; }
 
@@ -70,6 +77,8 @@ namespace Resume.Models
 
         public class Work
         {
+            [Key]
+            public int Id { get; set; }
             public string company { get; set; }
             public string position { get; set; }
 
@@ -89,6 +98,8 @@ namespace Resume.Models
 
         public class Volunteer
         {
+            [Key]
+            public int Id { get; set; }
             public string organization { get; set; }
             public string position { get; set; }
 
@@ -108,6 +119,8 @@ namespace Resume.Models
 
         public class Education
         {
+            [Key]
+            public int Id { get; set; }
             public string institution { get; set; }
             public string area { get; set; }
             public string studyType { get; set; }
@@ -125,6 +138,8 @@ namespace Resume.Models
 
         public class Award
         {
+            [Key]
+            public int Id { get; set; }
             public string title { get; set; }
 
             [DataType(DataType.Date)]
@@ -136,6 +151,8 @@ namespace Resume.Models
 
         public class Publication
         {
+            [Key]
+            public int Id { get; set; }
             public string name { get; set; }
             public string publisher { get; set; }
 
@@ -150,6 +167,8 @@ namespace Resume.Models
 
         public class Skill
         {
+            [Key]
+            public int Id { get; set; }
             public string name { get; set; }
             public string level { get; set; }
             public string[] keywords { get; set; }
@@ -157,21 +176,27 @@ namespace Resume.Models
 
         public class Language
         {
+            [Key]
+            public int Id { get; set; }
             public string name { get; set; }
             public string level { get; set; }
         }
 
         public class Interest
         {
+            [Key]
+            public int Id { get; set; }
             public string name { get; set; }
             public string[] keywords { get; set; }
         }
 
         public class Reference
         {
+            [Key]
+            public int Id { get; set; }
             public string name { get; set; }
             public string reference { get; set; }
         }
 
-    }
+    
 }
